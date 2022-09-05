@@ -24,7 +24,7 @@ public class BoardDAO {
 	}
 
 	public List<BoardVO> selectAllBoards() {
-		String sql = "select * from board order by num desc";
+		String sql = "select * from bboard order by num desc";
 
 		List<BoardVO> list = new ArrayList<BoardVO>();
 		Connection conn = null;
@@ -59,8 +59,8 @@ public class BoardDAO {
 	}
 
 	public void insertBoard(BoardVO bVo) {
-		String sql = "insert into board(" + "num, name, email, pass, title, content) "
-				+ "value(board_seq.nextval, ?, ?, ?, ?, ?";
+		String sql = "insert into bboard(" + "num, name, email, pass, title, content) "
+				+ "values(board_seq.nextval, ?, ?, ?, ?, ?)";
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -84,7 +84,7 @@ public class BoardDAO {
 	}
 
 	public void updateReadCount(String num) {
-		String sql = "update board set readcount=readcount+1 where num=?";
+		String sql = "update bboard set readcount=readcount+1 where num=?";
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -101,9 +101,9 @@ public class BoardDAO {
 		}
 	}
 
-	// 寃뚯떆�뙋 湲� �궡�슜 �긽�꽭蹂닿린: 湲�踰덊샇濡� 李얠븘�샂
+	
 	public BoardVO selectOneBoardByNum(String num) {
-		String sql = "select * from board where num=?";
+		String sql = "select * from bboard where num=?";
 
 		BoardVO bVo = null;
 		Connection conn = null;
@@ -140,7 +140,7 @@ public class BoardDAO {
 	}
 
 	public void updateBoard(BoardVO bVo) {
-		String sql = "update board set name=?, email=?, pass=?, title=?, content=?, where num=?";
+		String sql = "update bboard set name=?, email=?, pass=?, title=?, content=? where num=?";
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -165,7 +165,7 @@ public class BoardDAO {
 	}
 
 	public BoardVO checkPassWords(String pass, String num) {
-		String sql = "select * from board where pass=? and num=?";
+		String sql = "select * from bboard where pass=? and num=?";
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -200,7 +200,7 @@ public class BoardDAO {
 	}
 
 	public void deleteBoard(String num) {
-		String sql = "delete board where num=?";
+		String sql = "delete bboard where num=?";
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
