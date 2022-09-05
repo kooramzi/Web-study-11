@@ -1,4 +1,4 @@
-package com.seyan.dao;
+package com.saeyan.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -101,7 +101,7 @@ public class BoardDAO {
 		}
 	}
 
-	// 게시판 글 내용 상세보기: 글번호로 찾아옴
+	// 寃뚯떆�뙋 湲� �궡�슜 �긽�꽭蹂닿린: 湲�踰덊샇濡� 李얠븘�샂
 	public BoardVO selectOneBoardByNum(String num) {
 		String sql = "select * from board where num=?";
 
